@@ -133,7 +133,7 @@ class Command(object):
         """Process the command"""
         if self.command in ["note", "n"]:
             await self._note_for_me()
-        elif self.command in ["listnotes", "list", "ln", "l"]:
+        elif self.command in ["listnotes", "list", "ln"]:
             await self._list_notes()
         elif self.command in [
             "delnote",
