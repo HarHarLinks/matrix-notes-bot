@@ -169,7 +169,7 @@ class Command(object):
 
             ##<topic>
 
-            <target user>: <note text>
+            <target user> said: <note text>
 
         or if there are no notes set:
 
@@ -195,7 +195,7 @@ class Command(object):
 
             # In groups, also announce the note taker
             if len(self.room.users) > 2:
-                line += f'{make_pill(note.target_user)} said:'
+                line += f'{make_pill(note.target_user)} said: '
 
             # Add the note's text
             line += f'*"{note.note_text}"*'

@@ -226,8 +226,6 @@ class Storage(object):
 
     def store_note(self, note: Note):
         """Store a new note in the database"""
-        # timedelta.seconds does NOT give you the timedelta converted to seconds
-        # Use a method from apscheduler instead
 
         self._execute(
             """
