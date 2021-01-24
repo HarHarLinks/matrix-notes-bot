@@ -16,9 +16,9 @@ matrix:
   # The device ID that is a **non pre-existing** device
   # If this device ID already exists, messages will be dropped silently in
   # encrypted rooms
-  device_id: REMINDER
+  device_id: NOTES
   # What to name the logged in device
-  device_name: Reminder Bot
+  device_name: Notes Bot
 
 storage:
   # The database connection string
@@ -29,12 +29,7 @@ storage:
   database: "sqlite://bot.db"
   # The path to a directory for internal bot storage
   # containing encryption keys, sync tokens, etc.
-  store_path: "./store"
-
-reminders:
-  # Uncomment to set a default timezone that will be used when creating reminders.
-  # If not set, UTC will be used
-  #timezone: "Europe/London"
+  store_path: "/data/store"
 
 # Logging setup
 logging:

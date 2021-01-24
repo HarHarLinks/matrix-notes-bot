@@ -5,7 +5,6 @@ import sys
 from time import sleep
 
 from aiohttp import ClientConnectionError, ServerDisconnectedError
-from apscheduler.schedulers import SchedulerAlreadyRunningError
 from nio import (
     AsyncClient,
     AsyncClientConfig,
@@ -18,7 +17,6 @@ from nio import (
 
 from matrix_notes_bot.callbacks import Callbacks
 from matrix_notes_bot.config import CONFIG
-from matrix_notes_bot.note import NOTES
 from matrix_notes_bot.storage import Storage
 
 logger = logging.getLogger(__name__)

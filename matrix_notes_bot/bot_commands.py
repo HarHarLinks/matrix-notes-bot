@@ -1,20 +1,11 @@
 import logging
 from typing import Optional, Tuple
 
-import arrow
-import dateparser
-import pytz
-from apscheduler.job import Job
-from apscheduler.triggers.cron import CronTrigger
-from apscheduler.triggers.date import DateTrigger
-from apscheduler.triggers.interval import IntervalTrigger
 from nio import AsyncClient, MatrixRoom
 from nio.events.room_events import RoomMessageText
-from pretty_cron import prettify_cron
-from readabledelta import readabledelta
 
 from matrix_notes_bot.config import CONFIG
-from matrix_notes_bot.errors import CommandError, CommandSyntaxError
+from matrix_notes_bot.errors import CommandSyntaxError
 from matrix_notes_bot.functions import command_syntax, send_text_to_room, make_pill
 from matrix_notes_bot.note import NOTES, Note
 from matrix_notes_bot.storage import Storage

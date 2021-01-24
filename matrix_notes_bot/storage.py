@@ -1,9 +1,6 @@
 import logging
-from datetime import datetime, timedelta
 from typing import Dict, Tuple
 
-import pytz
-from apscheduler.util import timedelta_seconds
 from nio import AsyncClient
 
 from matrix_notes_bot.config import CONFIG
@@ -212,14 +209,15 @@ class Storage(object):
             # Extract note data
             note_text = row[0]
             category = row[1] if row[1] else None
-            room_id = row[5]
-            target_user = row[6]
+            room_id = row[2]
+            target_user = row[3]
 
             # Create and record the note
             notes[(room_id, note_text.upper())] = Note(
                 client=self.client,
                 store=self,
                 note_text=note_text,
+                category=category,
                 room_id=room_id,
                 target_user=target_user,
             )

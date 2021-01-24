@@ -1,18 +1,7 @@
 import logging
-from datetime import datetime, timedelta
 from typing import Dict, Optional, Tuple
 
-import pytz
-from apscheduler.job import Job
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from apscheduler.triggers.cron import CronTrigger
-from apscheduler.triggers.date import DateTrigger
-from apscheduler.triggers.interval import IntervalTrigger
-from apscheduler.util import timedelta_seconds
 from nio import AsyncClient
-
-from matrix_notes_bot.config import CONFIG
-from matrix_notes_bot.functions import make_pill, send_text_to_room
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +35,7 @@ class Note(object):
         self.category = category
         self.target_user = target_user
 
-    def cancel(self, cancel_alarm: bool = True):
+    def cancel(self):
         """Cancels a note and all recurring instances
         """
         logger.debug(

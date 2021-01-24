@@ -34,12 +34,6 @@ setup(
         "matrix-nio[e2e]>=0.10.0",
         "Markdown>=3.1.1",
         "PyYAML>=5.1.2",
-        "dateparser>=0.7.4",
-        "readabledelta>=0.0.2",
-        "apscheduler>=3.6.3",
-        "pytz>=2020.1",
-        "arrow>=0.17.0",
-        "pretty_cron>=1.2.0",
     ],
     extras_require={
         "postgres": ["psycopg2>=2.8.5"],
