@@ -48,7 +48,7 @@ The following is a guide on the steps necessary to creating a release of `matrix
 
 	```sh
 	python3 setup.py sdist bdist_wheel
-	python3 -m twine upload dist/matrix_reminder_bot-$ver-py3-none-any.whl dist/matrix-reminder-bot-$ver.tar.gz
+	python3 -m twine upload dist/matrix_reminder_bot-$ver-py3-none-any.whl dist/matrix-note-bot-$ver.tar.gz
 	```
 
 1. Check that the images on Docker Hub are building: https://hub.docker.com/repository/docker/anoa/matrix-reminder-bot

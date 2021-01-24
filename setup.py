@@ -20,15 +20,15 @@ def read_file(path_segments):
         return f.read()
 
 
-version = exec_file(("matrix_reminder_bot", "__init__.py"))["__version__"]
+version = exec_file(("matrix_notes_bot", "__init__.py"))["__version__"]
 long_description = read_file(("README.md",))
 
 
 setup(
-    name="matrix-reminder-bot",
+    name="matrix-notes-bot",
     version=version,
-    url="https://github.com/anoadragon453/matrix-reminder-bot",
-    description="A matrix bot to remind you about things!",
+    url="https://github.com/HarHarLinks/matrix-notes-bot",
+    description="A matrix bot to take notes!",
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=[
         "matrix-nio[e2e]>=0.10.0",
@@ -57,9 +57,10 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # Allow the user to run the bot with `matrix-reminder-bot ...`
-    scripts=["matrix-reminder-bot"],
+    # Allow the user to run the bot with `matrix-notes-bot ...`
+    scripts=["matrix-notes-bot"],
 )

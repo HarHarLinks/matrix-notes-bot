@@ -1,6 +1,6 @@
 #!/bin/bash
 # A script to quickly setup a running development environment for
-# matrix-reminder-bot
+# matrix-notes-bot
 #
 # It's primary purpose is to set up docker networking correctly so that
 # the bot can connect to remote services as well as those hosted on

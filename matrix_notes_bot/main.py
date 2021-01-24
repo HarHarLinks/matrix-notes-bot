@@ -16,10 +16,10 @@ from nio import (
     RoomMessageText,
 )
 
-from matrix_reminder_bot.callbacks import Callbacks
-from matrix_reminder_bot.config import CONFIG
-from matrix_reminder_bot.reminder import SCHEDULER
-from matrix_reminder_bot.storage import Storage
+from matrix_notes_bot.callbacks import Callbacks
+from matrix_notes_bot.config import CONFIG
+from matrix_notes_bot.note import NOTES
+from matrix_notes_bot.storage import Storage
 
 logger = logging.getLogger(__name__)
 
@@ -32,9 +32,6 @@ async def main():
     else:
         config_filepath = "config.yaml"
     CONFIG.read_config(config_filepath)
-
-    # Configure the python job scheduler
-    SCHEDULER.configure({"apscheduler.timezone": CONFIG.timezone})
 
     # Configuration options for the AsyncClient
     client_config = AsyncClientConfig(
@@ -95,12 +92,6 @@ async def main():
 
             logger.info(f"Logged in as {CONFIG.user_id}")
             logger.info("Startup complete")
-
-            # Allow jobs to fire
-            try:
-                SCHEDULER.start()
-            except SchedulerAlreadyRunningError:
-                pass
 
             await client.sync_forever(timeout=30000, full_state=True)
 

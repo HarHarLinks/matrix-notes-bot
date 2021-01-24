@@ -11,11 +11,11 @@ from nio import (
     RoomMessageText,
 )
 
-from matrix_reminder_bot.bot_commands import Command
-from matrix_reminder_bot.config import CONFIG
-from matrix_reminder_bot.errors import CommandError
-from matrix_reminder_bot.functions import send_text_to_room
-from matrix_reminder_bot.storage import Storage
+from matrix_notes_bot.bot_commands import Command
+from matrix_notes_bot.config import CONFIG
+from matrix_notes_bot.errors import CommandError
+from matrix_notes_bot.functions import send_text_to_room
+from matrix_notes_bot.storage import Storage
 
 logger = logging.getLogger(__name__)
 
@@ -144,7 +144,7 @@ class Callbacks(object):
             f"Tip: try using a different device ID in your config file and restart."
             f"\n\n"
             f"If all else fails, delete your store directory and let the bot recreate "
-            f"it (your reminders will NOT be deleted, but the bot may respond to existing "
+            f"it (your notes will NOT be deleted, but the bot may respond to existing "
             f"commands a second time)."
         )
 

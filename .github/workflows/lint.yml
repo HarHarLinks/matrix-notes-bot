@@ -28,7 +28,7 @@ jobs:
 
     - name: Check import statement sorting
       run: |
-        isort -c --df matrix_reminder_bot matrix-reminder-bot
+        isort -c --df matrix_notes_bot matrix-notes-bot
 
     - name: Python syntax errors, undefined names, etc.
       run: |
@@ -36,4 +36,4 @@ jobs:
 
     - name: PEP8 formatting
       run: |
-        black --check --diff matrix_reminder_bot/ matrix-reminder-bot
+        black --check --diff matrix_notes_bot/ matrix-notes-bot

@@ -11,7 +11,7 @@ if [ $# -ge 1 ]
 then
     files=$*
   else
-    files="matrix_reminder_bot matrix-reminder-bot"
+    files="matrix_notes_bot matrix-notes-bot"
 fi
 
 echo "Linting these locations: $files"

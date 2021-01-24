@@ -58,9 +58,9 @@ RUN apk add --no-cache \
 # Install python runtime modules. We do this before copying the source code
 # such that these dependencies can be cached
 # This speeds up subsequent image builds when the source code is changed
-RUN mkdir -p /src/matrix_reminder_bot
-COPY matrix_reminder_bot/__init__.py /src/matrix_reminder_bot/
-COPY README.md matrix-reminder-bot /src/
+RUN mkdir -p /src/matrix_notes_bot
+COPY matrix_notes_bot/__init__.py /src/matrix_notes_bot/
+COPY README.md matrix-notes-bot /src/
 
 # Build the dependencies
 COPY setup.py /src/setup.py
@@ -68,7 +68,7 @@ RUN pip install --prefix="/python-libs" --no-warn-script-location "/src/.[postgr
 
 # Now copy the source code
 COPY *.py *.md /src/
-COPY matrix_reminder_bot/*.py /src/matrix_reminder_bot/
+COPY matrix_notes_bot/*.py /src/matrix_notes_bot/
 
 # And build the final module
 RUN pip install --prefix="/python-libs" --no-warn-script-location "/src/.[postgres]"
@@ -97,5 +97,5 @@ RUN apk add --no-cache \
 # and the matrix-nio store
 VOLUME ["/data"]
 
-# Start matrix-reminder-bot
-ENTRYPOINT ["matrix-reminder-bot", "/data/config.yaml"]
+# Start matrix-notes-bot
+ENTRYPOINT ["matrix-notes-bot", "/data/config.yaml"]

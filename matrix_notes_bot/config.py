@@ -6,7 +6,7 @@ from typing import Any, List
 
 import yaml
 
-from matrix_reminder_bot.errors import ConfigError
+from matrix_notes_bot.errors import ConfigError
 
 logger = logging.getLogger()
 logging.getLogger("peewee").setLevel(
@@ -39,8 +39,6 @@ class Config:
         self.homeserver_url: str = ""
 
         self.command_prefix: str = ""
-
-        self.timezone: str = ""
 
     def read_config(self, filepath: str):
         if not os.path.isfile(filepath):
@@ -118,9 +116,6 @@ class Config:
         self.homeserver_url = self._get_cfg(["matrix", "homeserver_url"], required=True)
 
         self.command_prefix = self._get_cfg(["command_prefix"], default="!")
-
-        # Reminder configuration
-        self.timezone = self._get_cfg(["reminders", "timezone"], default="Etc/UTC")
 
     def _get_cfg(
         self,
