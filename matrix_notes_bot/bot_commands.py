@@ -74,6 +74,10 @@ class Command(object):
         # Clean up the input
         category_str = category_str.strip().lower()
         note_text = note_text.strip()
+        
+        # don't take empty notes    
+        if note_text == "":
+            note_text = None
 
         return category_str, note_text
 
@@ -101,6 +105,14 @@ class Command(object):
             category,
             note_text,
         ) = self._parse_note_command_args()
+        
+        if note_text is None:
+            await send_text_to_room(
+                self.client,
+                self.room.room_id,
+                "Notes cannot be empty, please try again.",
+            )
+            return
 
         logger.debug(f"Creating note in room {self.room.room_id} with: {note_text}")
 
